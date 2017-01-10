@@ -202,7 +202,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         //TODO: Replace this with your own logic
         return password.length() > 4;
     }
-
     /**
      * Shows the progress UI and hides the login form.
      */
@@ -318,26 +317,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 return false;
             }
 
-            try {
-                JSONObject parames = new JSONObject();
-                parames.put("email_or_username",mEmail);
-                parames.put("password",mPassword);
-                String result = DataAccess.ApiSuperDT("polls/api-token-auth-superdt","POST",parames.toString());
-                JSONObject token = new JSONObject(result);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            JSONObject token =DataAccess.apiAuth(mPassword,mEmail);
 
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
-            }
-
+            if(token!=null)
+                return true;
             // TODO: register the new account here.
-            return true;
+            return false;
         }
 
         @Override
@@ -359,5 +344,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
         }
     }
+
+
 }
 
