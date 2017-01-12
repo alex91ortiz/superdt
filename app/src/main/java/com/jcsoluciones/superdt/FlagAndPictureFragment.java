@@ -85,7 +85,7 @@ public class FlagAndPictureFragment extends Fragment {
             int x = 10;
             int y = 10;
             int width = 300;
-            int height = 50;
+            int height = 300;
 
             mDrawable = new ShapeDrawable(new OvalShape());
             mDrawable.getPaint().setColor(0xff74AC23);
