@@ -3,6 +3,7 @@ package com.jcsoluciones.superdt;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.ArcShape;
 import android.graphics.drawable.shapes.OvalShape;
 import android.net.Uri;
 import android.os.Bundle;
@@ -87,13 +88,19 @@ public class FlagAndPictureFragment extends Fragment {
             int width = 300;
             int height = 300;
 
-            mDrawable = new ShapeDrawable(new OvalShape());
-            mDrawable.getPaint().setColor(0xff74AC23);
+            mDrawable = new ShapeDrawable();
+
+
+            mDrawable.setShape(new ArcShape(-270,180));
+            mDrawable.setShape(new ArcShape(180,-270));
+            //mDrawable.getPaint().setColor(0xff74AC23);
             mDrawable.setBounds(x, y, x + width, y + height);
         }
 
         protected void onDraw(Canvas canvas) {
+
             mDrawable.draw(canvas);
         }
     }
 }
+
