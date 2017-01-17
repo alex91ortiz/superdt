@@ -1,4 +1,4 @@
-package com.jcsoluciones.superdt;
+package com.jcsoluciones.superdt.AuthAndRegister;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -29,7 +29,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.json.JSONException;
+
+import com.jcsoluciones.superdt.DataModel.DataAccessByHttp;
+import com.jcsoluciones.superdt.R;
+
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -64,11 +67,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private DataAccessByHttp dataAccessHttp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        // Set Data Access
+        dataAccessHttp = new DataAccessByHttp();
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -317,7 +323,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 return false;
             }
 
-            JSONObject token =DataAccess.apiAuth(mPassword,mEmail);
+            JSONObject token = dataAccessHttp.apiAuth(mPassword,mEmail);
 
             if(token!=null)
                 return true;

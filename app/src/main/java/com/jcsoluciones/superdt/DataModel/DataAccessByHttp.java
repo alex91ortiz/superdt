@@ -1,4 +1,4 @@
-package com.jcsoluciones.superdt;
+package com.jcsoluciones.superdt.DataModel;
 
 import android.util.Log;
 
@@ -16,13 +16,16 @@ import java.net.URL;
  * Created by Admin on 04/01/2017.
  */
 
-class DataAccess {
+public class DataAccessByHttp {
 
-    public static String TOKEN="";
+    public String TOKEN="";
 
-    public static  String HOST="http://superdt-solucionesjc.rhcloud.com/";
+    public String HOST="http://superdt-solucionesjc.rhcloud.com/";
 
-    public static  HttpURLConnection getHttpConnection(String url, String type){
+    public DataAccessByHttp() {
+    }
+
+    public  HttpURLConnection getHttpConnection(String url, String type){
         URL uri = null;
         HttpURLConnection con = null;
         try{
@@ -45,7 +48,7 @@ class DataAccess {
         return con;
     }
 
-    public static String ApiSuperDT(String url, String type, String reqbody){
+    public String ApiSuperDT(String url, String type, String reqbody){
         HttpURLConnection con = null;
         String result = null;
         try {
@@ -78,13 +81,13 @@ class DataAccess {
         return result;
     }
 
-    public static JSONObject apiAuth(String mPassword,String mEmail){
+    public  JSONObject apiAuth(String mPassword,String mEmail){
         JSONObject parames = new JSONObject();
         JSONObject token = null;
         try {
             parames.put("username",mEmail);
             parames.put("password",mPassword);
-            String result = DataAccess.ApiSuperDT("api-token-auth/","POST",parames.toString());
+            String result = this.ApiSuperDT("api-token-auth/","POST",parames.toString());
             token = new JSONObject(result);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -92,7 +95,7 @@ class DataAccess {
         return token;
     }
 
-    public static JSONObject getUser(String mEmail){
+    public  JSONObject getUser(String mEmail){
         JSONObject user = null;
         try {
             StringBuffer stringBuffer = new StringBuffer();
@@ -100,7 +103,7 @@ class DataAccess {
             stringBuffer.append("?");
             stringBuffer.append("username=");
             stringBuffer.append(mEmail);
-            String result = DataAccess.ApiSuperDT(stringBuffer.toString(),"GET",null);
+            String result = this.ApiSuperDT(stringBuffer.toString(),"GET",null);
             user = new JSONObject(result);
         } catch (JSONException e) {
             e.printStackTrace();

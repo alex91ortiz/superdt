@@ -2,5 +2,22 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#FF4081</color>}
+    <array name="flag_colors">
+        <item><color name="md_red_500">#f44336</color></item>
+        <item><color name="md_red_900">#b71c1c</color></item>
+        <item><color name="md_pink_500">#e91e63</color></item>
+        <item><color name="md_purple_500">#9c27b0</color></item>
+        <item><color name="md_indigo_500">#3f51b5</color></item>
+        <item><color name="md_blue_500">#2196f3</color></item>
+        <item><color name="md_light_blue_900">#01579b</color></item>
+        <item><color name="md_green_500">#4caf50</color></item>
+        <item><color name="md_green_900">#1b5e20</color></item>
+        <item><color name="md_yellow_500">#ffeb3b</color></item>
+        <item><color name="md_yellow_900">#f57f17</color></item>
+        <item><color name="md_brown_900">#3e2723</color></item>
+        <item><color name="md_blue_grey_500">#607d8b</color></item>
+        <item><color name="md_blue_grey_900">#263238</color></item>
+    </array>
+
 </resources>

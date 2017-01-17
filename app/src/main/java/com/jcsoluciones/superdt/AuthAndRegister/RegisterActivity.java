@@ -1,12 +1,11 @@
-package com.jcsoluciones.superdt;
+package com.jcsoluciones.superdt.AuthAndRegister;
 
 import android.net.Uri;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import com.jcsoluciones.superdt.R;
 
 public class RegisterActivity extends AppCompatActivity implements RegisterEmailFragment.OnFragmentInteractionListener{
 
@@ -14,11 +13,13 @@ public class RegisterActivity extends AppCompatActivity implements RegisterEmail
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        getSupportFragmentManager().beginTransaction().add(R.id.register_content,new RegisterEmailFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.register_content,new FlagAndPictureFragment()).commit();
     }
 
     @Override
     public void onFragmentInteraction(Uri uri) {
         Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
     }
+
+
 }

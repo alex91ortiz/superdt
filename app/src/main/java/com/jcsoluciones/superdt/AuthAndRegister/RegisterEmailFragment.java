@@ -1,6 +1,7 @@
-package com.jcsoluciones.superdt;
+package com.jcsoluciones.superdt.AuthAndRegister;
 
 import android.content.Context;
+
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -12,6 +13,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+
+import com.jcsoluciones.superdt.R;
+import com.jcsoluciones.superdt.DataModel.*;
 import org.json.JSONObject;
 
 
@@ -36,6 +40,7 @@ public class RegisterEmailFragment extends Fragment {
     private EditText mEmailView;
     private EditText mPasswordView;
     private OnFragmentInteractionListener mListener;
+    private DataAccessByHttp dataAccessHttp;
 
     public RegisterEmailFragment() {
         // Required empty public constructor
@@ -71,6 +76,8 @@ public class RegisterEmailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // Set Data Access
+        dataAccessHttp= new DataAccessByHttp();
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_register_email, container, false);
         mUsernameView = (EditText) view.findViewById(R.id.username);
@@ -125,13 +132,7 @@ public class RegisterEmailFragment extends Fragment {
         if(cancel){
             focusView.requestFocus();
         }else {
-            Fragment mflagAndPictureFragment = FlagAndPictureFragment.newInstance(
-                    mUsername,
-                    mPassword,
-                    mEmail
-            );
-            getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.register_content, mflagAndPictureFragment).commit();
+
         }
     }
 
@@ -199,7 +200,7 @@ public class RegisterEmailFragment extends Fragment {
                 return false;
             }
 
-            JSONObject token =DataAccess.apiAuth(mPassword,mEmail);
+            JSONObject token = dataAccessHttp.apiAuth(mPassword,mEmail);
 
             if(token!=null)
                 return true;
