@@ -151,6 +151,8 @@ public class FlagAndPictureFragment extends Fragment {
 
     public static class TwoHorzCircleFragment extends Fragment{
         public int color1=0;
+
+
         @Override
         public void onCreate(@Nullable Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
