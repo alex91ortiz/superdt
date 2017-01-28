@@ -1,4 +1,4 @@
-package com.jcsoluciones.superdt.DataModel;
+package com.jcsoluciones.superdt.datamodel;
 
 import android.util.Log;
 

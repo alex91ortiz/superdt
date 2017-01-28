@@ -1,4 +1,4 @@
-package com.jcsoluciones.superdt.AuthAndRegister;
+package com.jcsoluciones.superdt.authandregister;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -30,7 +30,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
-import com.jcsoluciones.superdt.DataModel.DataAccessByHttp;
+import com.jcsoluciones.superdt.datamodel.DataAccessByHttp;
 import com.jcsoluciones.superdt.R;
 
 import org.json.JSONObject;

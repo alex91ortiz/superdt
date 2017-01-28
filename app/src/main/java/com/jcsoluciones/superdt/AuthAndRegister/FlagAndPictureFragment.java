@@ -1,11 +1,7 @@
-package com.jcsoluciones.superdt.AuthAndRegister;
+package com.jcsoluciones.superdt.authandregister;
 
 
-import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -21,15 +17,10 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 
 import com.jcsoluciones.superdt.R;
-import com.jcsoluciones.superdt.Shapes.OneCircleFlagView;
-import com.jcsoluciones.superdt.Shapes.TwoHorzCircleFlagView;
-import com.jcsoluciones.superdt.Shapes.TwoVertCircleFlagView;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import com.jcsoluciones.superdt.shapes.OneCircleFlagView;
+import com.jcsoluciones.superdt.shapes.TwoHorzCircleFlagView;
+import com.jcsoluciones.superdt.shapes.TwoVertCircleFlagView;
+import com.jcsoluciones.superdt.utilities.SaveImgAndStore;
 
 
 /**
@@ -144,31 +135,13 @@ public class FlagAndPictureFragment extends Fragment {
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.fragment_one_flag_circle,container,false);
-            final OneCircleFlagView mCustomCircleFlagView = (OneCircleFlagView) view.findViewById(R.id.FlagCircle);
+            final OneCircleFlagView mCustomCircleFlagView = (OneCircleFlagView) view.findViewById(R.id.flag_circle);
             final GridView mGridView = (GridView) view.findViewById(R.id.list_item_colors);
             Button mNextbutton = (Button) view.findViewById(R.id.btn_next_one_flag);
             mNextbutton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mGridView.setDrawingCacheEnabled(true);
-                    mGridView.buildDrawingCache(true);
-                    Bitmap b = Bitmap.createBitmap(mGridView.getDrawingCache());
-                    String path = Environment.getExternalStorageDirectory().toString();
-                    OutputStream fOut = null;
-                    Integer counter = 0;
-                    File file = new File(path, "FitnessGirl"+counter+".jpg"); // the File to save , append increasing numeric counter to prevent files from getting overwritten.
-                    try {
-                        fOut = new FileOutputStream(file);
-                        Bitmap pictureBitmap =  b; // obtaining the Bitmap
-                        pictureBitmap.compress(Bitmap.CompressFormat.JPEG, 85, fOut); // saving the Bitmap to a file compressed as a JPEG with 85% compression rate
-                        fOut.flush(); // Not really required
-                        fOut.close(); // do not forget to close the stream
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                   // MediaStore.Images.Media.insertImage(getContentResolver(),file.getAbsolutePath(),file.getName(),file.getName());
+                    SaveImgAndStore.saveAndStoreExecute(getContext(),mCustomCircleFlagView);
                 }//
             });
             final AdapterFlagViewColors mAdapterFlagViewColors= new AdapterFlagViewColors(getActivity(), getResources().getStringArray(R.array.flag_colors));
@@ -197,9 +170,15 @@ public class FlagAndPictureFragment extends Fragment {
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.fragment_two_horz_flag_circle,container,false);
-            final TwoHorzCircleFlagView customCircleFlagView = (TwoHorzCircleFlagView) view.findViewById(R.id.FlagCircle);
-            GridView mGridView = (GridView) view.findViewById(R.id.list_item_colors);
-            Button mNextbutton = (Button) view.findViewById(R.id.btn_next_two_vert_flag);
+            final TwoHorzCircleFlagView customCircleFlagView = (TwoHorzCircleFlagView) view.findViewById(R.id.flag_circle);
+            final GridView mGridView = (GridView) view.findViewById(R.id.list_item_colors);
+            Button mNextbutton = (Button) view.findViewById(R.id.btn_next_two_horz_flag);
+            mNextbutton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    SaveImgAndStore.saveAndStoreExecute(getContext(),customCircleFlagView);
+                }
+            });
             final AdapterFlagViewColors mAdapterFlagViewColors= new AdapterFlagViewColors(getActivity(), getResources().getStringArray(R.array.flag_colors));
             mGridView.setAdapter(mAdapterFlagViewColors);
             mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -228,9 +207,15 @@ public class FlagAndPictureFragment extends Fragment {
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.fragment_two_vert_flag_circle,container,false);
-            final TwoVertCircleFlagView customCircleFlagView = (TwoVertCircleFlagView) view.findViewById(R.id.FlagCircle);
-            GridView mGridView = (GridView) view.findViewById(R.id.list_item_colors);
-            Button mNextbutton = (Button) view.findViewById(R.id.btn_next_two_horz_flag);
+            final TwoVertCircleFlagView customCircleFlagView = (TwoVertCircleFlagView) view.findViewById(R.id.flag_circle);
+            final GridView mGridView = (GridView) view.findViewById(R.id.list_item_colors);
+            Button mNextbutton = (Button) view.findViewById(R.id.btn_next_two_vert_flag);
+            mNextbutton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    SaveImgAndStore.saveAndStoreExecute(getContext(),customCircleFlagView);
+                }
+            });
             final AdapterFlagViewColors mAdapterFlagViewColors= new AdapterFlagViewColors(getActivity(), getResources().getStringArray(R.array.flag_colors));
             mGridView.setAdapter(mAdapterFlagViewColors);
 

@@ -1,4 +1,4 @@
-package com.jcsoluciones.superdt.AuthAndRegister;
+package com.jcsoluciones.superdt.authandregister;
 
 import android.app.Activity;
 import android.content.Context;

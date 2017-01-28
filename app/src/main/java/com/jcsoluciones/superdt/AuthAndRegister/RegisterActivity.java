@@ -1,4 +1,4 @@
-package com.jcsoluciones.superdt.AuthAndRegister;
+package com.jcsoluciones.superdt.authandregister;
 
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;

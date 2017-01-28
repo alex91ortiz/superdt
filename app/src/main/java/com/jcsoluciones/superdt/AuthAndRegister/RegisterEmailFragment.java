@@ -1,4 +1,4 @@
-package com.jcsoluciones.superdt.AuthAndRegister;
+package com.jcsoluciones.superdt.authandregister;
 
 import android.content.Context;
 
@@ -15,7 +15,7 @@ import android.widget.EditText;
 
 
 import com.jcsoluciones.superdt.R;
-import com.jcsoluciones.superdt.DataModel.*;
+import com.jcsoluciones.superdt.datamodel.*;
 import org.json.JSONObject;
 
 

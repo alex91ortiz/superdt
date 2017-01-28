@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SuperDT.iml" filepath="$PROJECT_DIR$/SuperDT.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/superdt.iml" filepath="$PROJECT_DIR$/superdt.iml" />
     </modules>
   </component>
 </project>
