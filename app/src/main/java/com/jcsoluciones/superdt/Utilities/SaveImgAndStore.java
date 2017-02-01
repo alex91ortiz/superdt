@@ -17,7 +17,7 @@ import java.io.OutputStream;
  * Created by ADMIN on 25/01/2017.
  */
 public class SaveImgAndStore {
-    public static void saveAndStoreExecute( Context context,View object){
+    public static boolean saveAndStoreExecute( Context context,View object){
         object.setDrawingCacheEnabled(true);
         object.buildDrawingCache(true);
         Bitmap b = Bitmap.createBitmap(object.getDrawingCache());
@@ -32,10 +32,14 @@ public class SaveImgAndStore {
             fOut.flush(); // Not really required
             fOut.close(); // do not forget to close the stream
             MediaStore.Images.Media.insertImage(context.getContentResolver(),file.getAbsolutePath(),file.getName(),file.getName());
+            return true;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+
         } catch (IOException e) {
             e.printStackTrace();
+
         }
+        return false;
     }
 }

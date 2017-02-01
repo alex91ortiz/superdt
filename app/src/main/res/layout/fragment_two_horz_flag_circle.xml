@@ -22,12 +22,14 @@
     <Button
         android:id="@+id/btn_next_two_horz_flag"
         android:layout_width="match_parent"
+        android:text="@string/btn_action_next"
         android:layout_below="@id/flag_circle"
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/btn_omit"
+        android:id="@+id/btn_skip"
         android:layout_below="@id/btn_next_two_horz_flag"
+        android:text="@string/btn_action_skip"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </RelativeLayout>

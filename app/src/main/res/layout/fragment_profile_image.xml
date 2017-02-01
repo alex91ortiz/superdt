@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/contentProfileImsge"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/img_profile"
+        android:layout_below="@+id/list_item_colors"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+
+        android:src="@drawable/ic_add_profile_img"
+        android:layout_centerHorizontal="true"
+        />
+    <Button
+        android:id="@+id/btn_change_img"
+        android:layout_width="match_parent"
+        android:text="@string/btn_action_change_img"
+        android:layout_below="@id/img_profile"
+        android:layout_height="wrap_content" />}
+    <Button
+        android:id="@+id/btn_next"
+        android:text="@string/btn_action_next"
+        android:layout_width="match_parent"
+        android:layout_below="@id/btn_change_img"
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>

@@ -1,6 +1,7 @@
 package com.jcsoluciones.superdt.authandregister;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -38,9 +39,9 @@ public class FlagAndPictureFragment extends Fragment {
     private static final String ARG_PARAM3 = "email";
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-    private String mParam3;
+    private static String mParam1;
+    private static String mParam2;
+    private static String mParam3;
 
 
     public FlagAndPictureFragment() {
@@ -80,7 +81,6 @@ public class FlagAndPictureFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_flag_and_picture, container, false);
-        LinearLayout layout = (LinearLayout) view.findViewById(R.id.layout_flag_picture);
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Tab 1"));
         tabLayout.addTab(tabLayout.newTab().setText("Tab 2"));
@@ -125,6 +125,11 @@ public class FlagAndPictureFragment extends Fragment {
         }
     }
 
+    public static Fragment getToProfileImage( ){
+        ProfileImageFragment mProfileImageFragment=  ProfileImageFragment.newInstance(mParam1,mParam2,mParam3,0);
+        return mProfileImageFragment;
+    }
+
     public static class OneCircleFragment extends Fragment{
         @Override
         public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -138,11 +143,21 @@ public class FlagAndPictureFragment extends Fragment {
             final OneCircleFlagView mCustomCircleFlagView = (OneCircleFlagView) view.findViewById(R.id.flag_circle);
             final GridView mGridView = (GridView) view.findViewById(R.id.list_item_colors);
             Button mNextbutton = (Button) view.findViewById(R.id.btn_next_one_flag);
+            Button mSkipbutton = (Button) view.findViewById(R.id.btn_skip);
+
             mNextbutton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    SaveImgAndStore.saveAndStoreExecute(getContext(),mCustomCircleFlagView);
-                }//
+                    if(SaveImgAndStore.saveAndStoreExecute(getContext(),mCustomCircleFlagView)){
+                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.register_content,getToProfileImage()).commit();
+                    }
+            }//
+            });
+            mSkipbutton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.register_content,getToProfileImage()).commit();
+                }
             });
             final AdapterFlagViewColors mAdapterFlagViewColors= new AdapterFlagViewColors(getActivity(), getResources().getStringArray(R.array.flag_colors));
             mGridView.setAdapter(mAdapterFlagViewColors);
@@ -173,10 +188,19 @@ public class FlagAndPictureFragment extends Fragment {
             final TwoHorzCircleFlagView customCircleFlagView = (TwoHorzCircleFlagView) view.findViewById(R.id.flag_circle);
             final GridView mGridView = (GridView) view.findViewById(R.id.list_item_colors);
             Button mNextbutton = (Button) view.findViewById(R.id.btn_next_two_horz_flag);
+            Button mSkipbutton = (Button) view.findViewById(R.id.btn_skip);
             mNextbutton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    SaveImgAndStore.saveAndStoreExecute(getContext(),customCircleFlagView);
+                    if(SaveImgAndStore.saveAndStoreExecute(getContext(),customCircleFlagView)){
+                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.register_content,getToProfileImage()).commit();
+                    };
+                }
+            });
+            mSkipbutton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.register_content,getToProfileImage()).commit();
                 }
             });
             final AdapterFlagViewColors mAdapterFlagViewColors= new AdapterFlagViewColors(getActivity(), getResources().getStringArray(R.array.flag_colors));
@@ -210,10 +234,19 @@ public class FlagAndPictureFragment extends Fragment {
             final TwoVertCircleFlagView customCircleFlagView = (TwoVertCircleFlagView) view.findViewById(R.id.flag_circle);
             final GridView mGridView = (GridView) view.findViewById(R.id.list_item_colors);
             Button mNextbutton = (Button) view.findViewById(R.id.btn_next_two_vert_flag);
+            Button mSkipbutton = (Button) view.findViewById(R.id.btn_skip);
             mNextbutton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    SaveImgAndStore.saveAndStoreExecute(getContext(),customCircleFlagView);
+                    if(SaveImgAndStore.saveAndStoreExecute(getContext(),customCircleFlagView)){
+                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.register_content,getToProfileImage()).commit();
+                    };
+                }
+            });
+            mSkipbutton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.register_content,getToProfileImage()).commit();
                 }
             });
             final AdapterFlagViewColors mAdapterFlagViewColors= new AdapterFlagViewColors(getActivity(), getResources().getStringArray(R.array.flag_colors));

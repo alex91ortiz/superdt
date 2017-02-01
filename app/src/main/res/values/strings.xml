@@ -17,7 +17,9 @@
     </string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="action_settings">Settings</string>
-
+    <string name="btn_action_skip">Skip</string>
+    <string name="btn_action_next">Next</string>
+    <string name="btn_action_change_img">Change Image</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

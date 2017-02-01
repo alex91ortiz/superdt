@@ -35,8 +35,9 @@ public class OneCircleFlagView extends View
         paint1.setColor(Color.BLACK);
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
         paint.setAntiAlias(true);
+        paint.setColor(Color.parseColor(mBodyColor));
         this.setLayerType(LAYER_TYPE_SOFTWARE, paint);
-        paint.setShader(new RadialGradient( 500, 500, 500, Color.BLACK, Color.parseColor(mBodyColor), Shader.TileMode.MIRROR));
+        //paint.setShader(new RadialGradient( 500, 500, 500, Color.BLACK, Color.parseColor(mBodyColor), Shader.TileMode.MIRROR));
         paint1.setShader(new RadialGradient( 500, 500, 500,  Color.GRAY, Color.GRAY, Shader.TileMode.MIRROR));
         //canvas.drawCircle(getWidth()/2,getHeight()/2,getHeight()/2,paint1);
         canvas.drawCircle((getWidth()/2),(getHeight()/2),(getHeight()/2),paint);

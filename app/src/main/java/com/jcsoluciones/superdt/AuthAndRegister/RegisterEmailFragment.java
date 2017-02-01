@@ -14,7 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 
-import com.jcsoluciones.superdt.R;
+import com.jcsoluciones.superdt.*;
+import com.jcsoluciones.superdt.authandregister.FlagAndPictureFragment;
 import com.jcsoluciones.superdt.datamodel.*;
 import org.json.JSONObject;
 
@@ -132,7 +133,7 @@ public class RegisterEmailFragment extends Fragment {
         if(cancel){
             focusView.requestFocus();
         }else {
-
+           getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.register_content,new FlagAndPictureFragment()).commit();
         }
     }
 
