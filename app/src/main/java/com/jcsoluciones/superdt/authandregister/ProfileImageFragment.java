@@ -71,7 +71,7 @@ public class ProfileImageFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FlagAndPictureFragment.
+     * @return A new instance of fragment ProfileImageFragment.
      */
     // TODO: Rename and change types and number of parameters
     public static ProfileImageFragment newInstance(String param1, String param2,String param3,int param4) {
