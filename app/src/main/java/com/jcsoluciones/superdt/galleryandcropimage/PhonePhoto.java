@@ -1,4 +1,4 @@
-package com.jcsoluciones.superdt.utilities;
+package com.jcsoluciones.superdt.galleryandcropimage;
 
 /**
  * Created by ADMIN on 02/02/2017.

@@ -1,7 +1,6 @@
 package com.jcsoluciones.superdt.authandregister;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -15,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.LinearLayout;
 
 import com.jcsoluciones.superdt.R;
 import com.jcsoluciones.superdt.shapes.OneCircleFlagView;

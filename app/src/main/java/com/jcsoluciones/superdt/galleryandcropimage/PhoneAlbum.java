@@ -1,4 +1,4 @@
-package com.jcsoluciones.superdt.utilities;
+package com.jcsoluciones.superdt.galleryandcropimage;
 
 import java.util.Vector;
 

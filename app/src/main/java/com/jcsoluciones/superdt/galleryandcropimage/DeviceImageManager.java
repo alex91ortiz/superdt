@@ -1,4 +1,4 @@
-package com.jcsoluciones.superdt.utilities;
+package com.jcsoluciones.superdt.galleryandcropimage;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -58,30 +58,32 @@ public class DeviceImageManager {
                     imageId = cur.getString( imageIdColumn );
 
                     // Adding a new PhonePhoto object to phonePhotos vector
-                    PhonePhoto phonePhoto = new PhonePhoto();
-                    phonePhoto.setAlbumName( bucketName );
-                    phonePhoto.setPhotoUri( data );
-                    phonePhoto.setId( Integer.valueOf( imageId ) );
+                    if(!data.isEmpty()) {
+                        PhonePhoto phonePhoto = new PhonePhoto();
+                        phonePhoto.setAlbumName(bucketName);
+                        phonePhoto.setPhotoUri(data);
+                        phonePhoto.setId(Integer.valueOf(imageId));
 
-                    if ( albumsNames.contains( bucketName ) ) {
-                        for ( PhoneAlbum album : phoneAlbums ) {
-                            if ( album.getName().equals( bucketName ) ) {
-                                album.getAlbumPhotos().add( phonePhoto );
-                                Log.i( "DeviceImageManager", "A photo was added to album => " + bucketName );
-                                break;
+                        if (albumsNames.contains(bucketName)) {
+                            for (PhoneAlbum album : phoneAlbums) {
+                                if (album.getName().equals(bucketName)) {
+                                    album.getAlbumPhotos().add(phonePhoto);
+                                    Log.i("DeviceImageManager", "A photo was added to album => " + bucketName);
+                                    break;
+                                }
                             }
-                        }
-                    } else {
-                        PhoneAlbum album = new PhoneAlbum();
-                        Log.i( "DeviceImageManager", "A new album was created => " + bucketName );
-                        album.setId( phonePhoto.getId() );
-                        album.setName( bucketName );
-                        album.setCoverUri( phonePhoto.getPhotoUri() );
-                        album.getAlbumPhotos().add( phonePhoto );
-                        Log.i( "DeviceImageManager", "A photo was added to album => " + bucketName );
+                        } else {
+                            PhoneAlbum album = new PhoneAlbum();
+                            Log.i("DeviceImageManager", "A new album was created => " + bucketName);
+                            album.setId(phonePhoto.getId());
+                            album.setName(bucketName);
+                            album.setCoverUri(phonePhoto.getPhotoUri());
+                            album.getAlbumPhotos().add(phonePhoto);
+                            Log.i("DeviceImageManager", "A photo was added to album => " + bucketName);
 
-                        phoneAlbums.add( album );
-                        albumsNames.add( bucketName );
+                            phoneAlbums.add(album);
+                            albumsNames.add(bucketName);
+                        }
                     }
 
                 } while (cur.moveToNext());

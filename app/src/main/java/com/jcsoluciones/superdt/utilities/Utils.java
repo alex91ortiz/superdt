@@ -22,6 +22,7 @@ import android.os.Build.VERSION_CODES;
 import android.os.StrictMode;
 
 import com.jcsoluciones.superdt.authandregister.LoginActivity;
+import com.jcsoluciones.superdt.galleryandcropimage.GalleryActivity;
 
 
 /**

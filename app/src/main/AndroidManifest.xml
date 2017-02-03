@@ -28,7 +28,7 @@
         <activity android:name=".authandregister.RegisterActivity">
 
         </activity>
-        <activity android:name=".utilities.GalleryActivity">
+        <activity android:name=".galleryandcropimage.GalleryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

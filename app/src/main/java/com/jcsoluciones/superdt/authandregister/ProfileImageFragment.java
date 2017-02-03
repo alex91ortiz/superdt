@@ -58,7 +58,7 @@ public class ProfileImageFragment extends Fragment {
     private RelativeLayout mRlView;
     private final int PHOTO_CODE = 200;
     private String selectedImage;
-    private final int SELECT_PICTURE = 300;
+    public static final int SELECT_PICTURE = 300;
     private File file;
     private ImageView mImageViewProfile;
     public ProfileImageFragment() {
@@ -154,9 +154,10 @@ public class ProfileImageFragment extends Fragment {
                 if (option[which] == "Tomar foto") {
                     openCamera();
                 } else if (option[which] == "Elegir de galeria") {
-                    Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    /*Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                     intent.setType("image/*");
-                    startActivityForResult(intent.createChooser(intent, "Selecciona app de imagen"), SELECT_PICTURE);
+                    startActivityForResult(intent.createChooser(intent, "Selecciona app de imagen"), SELECT_PICTURE);*/
+
                 } else {
                     dialog.dismiss();
                 }
