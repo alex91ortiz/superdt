@@ -154,7 +154,7 @@ public class FlagAndPictureFragment extends Fragment {
             mSkipbutton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.register_content,getToProfileImage()).commit();
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.register_content,getToProfileImage()).detach(getToProfileImage()).commit();
                 }
             });
             final AdapterFlagViewColors mAdapterFlagViewColors= new AdapterFlagViewColors(getActivity(), getResources().getStringArray(R.array.flag_colors));

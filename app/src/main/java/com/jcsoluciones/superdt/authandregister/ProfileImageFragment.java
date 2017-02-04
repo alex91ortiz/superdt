@@ -28,6 +28,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.jcsoluciones.superdt.R;
+import com.jcsoluciones.superdt.galleryandcropimage.GalleryActivity;
 import com.jcsoluciones.superdt.utilities.RealPathUtil;
 
 import static android.Manifest.permission.CAMERA;
@@ -157,7 +158,8 @@ public class ProfileImageFragment extends Fragment {
                     /*Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                     intent.setType("image/*");
                     startActivityForResult(intent.createChooser(intent, "Selecciona app de imagen"), SELECT_PICTURE);*/
-
+                    Intent intent = new Intent(getActivity(), GalleryActivity.class);
+                    startActivity(intent);
                 } else {
                     dialog.dismiss();
                 }
@@ -220,12 +222,13 @@ public class ProfileImageFragment extends Fragment {
                     mImageViewProfile.setImageBitmap(bitmap);
                     break;
                 case SELECT_PICTURE:
-                    Uri path = data.getData();
+                    String photo=data.getStringExtra("Photo");
+                    /*Uri path = data.getData();
 
                     selectedImage = RealPathUtil.getRealPathFromURI_API19(getActivity(), path);
-                    file = new File(selectedImage);
+                    file = new File(selectedImage);*/
 
-                    mImageViewProfile.setImageURI(path);
+                    mImageViewProfile.setImageBitmap(BitmapFactory.decodeFile(photo));
                     break;
 
             }
