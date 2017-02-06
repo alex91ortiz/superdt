@@ -227,7 +227,6 @@ public class ProfileImageFragment extends Fragment {
                     mParam4=data.getStringExtra("Photo");
                     Uri path = data.getData();
 
-
                     selectedImage = RealPathUtil.getRealPathFromURI_API19(getActivity(), path);
                     file = new File(selectedImage);
                     mImageViewProfile.setImageBitmap(BitmapFactory.decodeFile(mParam4));
