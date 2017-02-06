@@ -169,9 +169,12 @@ public class GalleryActivity extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     PhonePhoto mPhonePhoto = (PhonePhoto) adapter.getItem(position);
-                    Intent intent = new Intent(getActivity(),RegisterActivity.class);
-                    intent.putExtra(ARG_PARAM1,mPhonePhoto.getPhotoUri());
-                    getActivity().startActivityForResult( intent, ProfileImageFragment.SELECT_PICTURE);
+
+                    selectImageProfile = mPhonePhoto.getPhotoUri();
+                    Intent intent = getActivity().getIntent();
+                    intent.putExtra("Photo",selectImageProfile);
+                    getActivity().setResult(getActivity().RESULT_OK,intent);
+                    getActivity().finish();
 
                 }
             });
@@ -236,6 +239,8 @@ public class GalleryActivity extends AppCompatActivity {
             }
         }
     }
+
+
 
 
 }

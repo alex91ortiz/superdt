@@ -47,10 +47,12 @@ public class ProfileImageFragment extends Fragment {
     private static final String ARG_PARAM2 = "password";
     private static final String ARG_PARAM3 = "email";
 
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
     private String mParam3;
+    private String mParam4;
 
     private static String APP_DIRECTORY = "MyPictureApp/";
     private static String MEDIA_DIRECTORY = APP_DIRECTORY + "PictureApp";
@@ -159,7 +161,7 @@ public class ProfileImageFragment extends Fragment {
                     intent.setType("image/*");
                     startActivityForResult(intent.createChooser(intent, "Selecciona app de imagen"), SELECT_PICTURE);*/
                     Intent intent = new Intent(getActivity(), GalleryActivity.class);
-                    startActivity(intent);
+                    startActivityForResult(intent,SELECT_PICTURE);
                 } else {
                     dialog.dismiss();
                 }
@@ -200,8 +202,8 @@ public class ProfileImageFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if(resultCode == getActivity().RESULT_OK){
+        int code = getActivity().RESULT_OK;
+        if(resultCode == code){
             //resultImageOnSelected=true;
             switch (requestCode){
                 case PHOTO_CODE:
@@ -222,13 +224,13 @@ public class ProfileImageFragment extends Fragment {
                     mImageViewProfile.setImageBitmap(bitmap);
                     break;
                 case SELECT_PICTURE:
-                    String photo=data.getStringExtra("Photo");
-                    /*Uri path = data.getData();
+                    mParam4=data.getStringExtra("Photo");
+                    Uri path = data.getData();
 
                     selectedImage = RealPathUtil.getRealPathFromURI_API19(getActivity(), path);
-                    file = new File(selectedImage);*/
+                    file = new File(selectedImage);
 
-                    mImageViewProfile.setImageBitmap(BitmapFactory.decodeFile(photo));
+                    mImageViewProfile.setImageBitmap(BitmapFactory.decodeFile(mParam4));
                     break;
 
             }

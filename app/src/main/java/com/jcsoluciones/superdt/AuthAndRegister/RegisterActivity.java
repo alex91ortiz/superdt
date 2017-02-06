@@ -42,7 +42,6 @@ public class RegisterActivity extends AppCompatActivity implements RegisterEmail
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
-                finish();
             }
         });
 
