@@ -230,7 +230,6 @@ public class ProfileImageFragment extends Fragment {
 
                     selectedImage = RealPathUtil.getRealPathFromURI_API19(getActivity(), path);
                     file = new File(selectedImage);
-
                     mImageViewProfile.setImageBitmap(BitmapFactory.decodeFile(mParam4));
                     break;
 
